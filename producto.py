@@ -1,16 +1,21 @@
 class Producto:
-    def __init__(self,nombre,marca,precio,cantidad):
-        self.nombre=nombre
-        self.marca=marca
-        self.precio=precio
-        self.cantidad=cantidad
+    def __init__(self, nombre, precio, stock):
+        self.nombre = nombre
+        self.precio = precio
+        self.stock = stock
     
     def info(self):
-        return f"{self.nombre}{self.marca}{self.cantidad}"
+        return f"{self.nombre} {self.stock}"
     
-    def actualizar_cantidad(self,cantidad_vendida):
-        self.cantidad = self.cantidad - cantidad_vendida
-        
-
-
-  
+    def get_precio(self):
+        return self.precio
+    
+    def actualizar_stock(self, stock_vendida):
+        if stock_vendida < self.stock:
+            self.stock = self.stock - stock_vendida
+    
+    def get_nombre(self):
+        return self.nombre
+    
+    def get_info_completa(self):
+        return f"{ self.nombre } { self.precio } { self.stock }"
